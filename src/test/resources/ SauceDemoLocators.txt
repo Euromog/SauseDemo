@@ -1,0 +1,38 @@
+1. By.id("user-name");
+2. By.id("password");
+3. By.id("login-button");
+4. By.cssSelector("[data-test=error]");
+
+
+5. By.cssSelector("button[text()='Open Menu']");
+6. By.id("inventory_sidebar_link");
+6. By.id("about_sidebar_link");
+6. By.id("logout_sidebar_link");
+6. By.id("reset_sidebar_link");
+6. By.cssSelector("button[text()='Close Menu']");
+
+7. By.cssSelector("[data-prefix='fas']");
+8. By.cssSelector(".btn_action.checkout_button");
+9. By.cssSelector(".btn_secondary");
+
+10. By.id("first-name");
+11. By.id("last-name");
+12. By.id("postal-code");
+13. By.cssSelector(".cart_cancel_link.btn_secondary");
+14. By.cssSelector("input[type='submit']");
+14a. By.cssSelector("[data-test='error']");
+
+15. By.cssSelector(".cart_cancel_link.btn_secondary");
+16. By.cssSelector(".btn_action.cart_button");
+
+17. By.xpath("//select[@class='product_sort_container']/child::option[@value='az']");
+18. By.xpath("//select[@class='product_sort_container']/child::option[@value='za']");
+19. By.xpath("//select[@class='product_sort_container']/child::option[@value='lohi']");
+20. By.xpath("//select[@class='product_sort_container']/child::option[@value='hilo']");
+
+21. By.xpath("//*[text()='Sauce Labs Backpack']/ancestor::*[@class='inventory_item']//button");
+
+22. By.xpath("//*[text()='Sauce Labs Backpack']//ancestor::*[@class='cart_item_label']//button");
+23. By.cssSelector(".cart_quantity");
+
+24. By.cssSelector(".pony_express");
