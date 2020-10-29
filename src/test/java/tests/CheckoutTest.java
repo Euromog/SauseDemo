@@ -37,7 +37,7 @@ public class CheckoutTest extends BaseTest {
         };
     }
 
-    @Test(description = "Error message should be displayed when entering wrong checkout info", dataProvider = "TestDataForCheckoutInputs", invocationCount = 5, threadPoolSize = 10)
+    @Test(description = "Error message should be displayed when entering wrong checkout info", dataProvider = "TestDataForCheckoutInputs")
     public void errorMessageShouldBeDisplayedWithWrongCheckoutInfo(String FIRST_NAME, String LAST_NAME, String ZIP_CODE, String errorMessage) {
         String actualResult = checkoutPage
                 .openPage()
