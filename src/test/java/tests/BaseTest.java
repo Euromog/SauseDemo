@@ -7,6 +7,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import pages.*;
+import utils.CapabilitiesGenerator;
 
 import java.util.concurrent.TimeUnit;
 
@@ -26,7 +27,7 @@ public class BaseTest extends Constants {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
         ChromeOptions options = new ChromeOptions();
         options.setHeadless(true);
-        driver = new ChromeDriver(options);
+        driver = new ChromeDriver(CapabilitiesGenerator.getChromeOptions());
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         createInstances();
