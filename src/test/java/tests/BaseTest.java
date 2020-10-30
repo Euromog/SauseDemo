@@ -5,20 +5,21 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import pages.*;
 
 import java.util.concurrent.TimeUnit;
 
-public class BaseTest {
+@Listeners(TestListener.class)
+
+public class BaseTest extends Constants {
     WebDriver driver;
     LoginPage loginPage;
     ProductsPage productsPage;
     CartPage cartPage;
     CheckoutOverviewPage checkoutOverviewPage;
     CheckoutPage checkoutPage;
-
-    public static final String USERNAME = "standard_user";
-    public static final String PASSWORD = "secret_sauce";
+    FinishPage finishPage;
 
     @BeforeMethod
     public void setUp() {
@@ -28,15 +29,20 @@ public class BaseTest {
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        createInstances();
+    }
+
+    @AfterMethod(alwaysRun = true, description = "Закрытие браузера")
+    public void tearDown() {
+        driver.quit();
+    }
+
+    public void createInstances() {
         loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
         cartPage = new CartPage(driver);
         checkoutOverviewPage = new CheckoutOverviewPage(driver);
         checkoutPage = new CheckoutPage(driver);
-    }
-
-    @AfterMethod
-    public void tearDown() {
-        driver.quit();
+        finishPage = new FinishPage(driver);
     }
 }
