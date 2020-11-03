@@ -3,7 +3,9 @@ package tests;
 public class Constants {
 
     public static final String USERNAME = "standard_user";
-    public static final String PASSWORD = System.getProperty("password");
+    //    public static final String PASSWORD = System.getProperty("password");
+    public static final String PASSWORD = "secret_sauce";
+
     public static final String WRONG_PASSWORD = "secret_sauce2";
     public static final String WRONG_USERNAME = "standard_user2";
 
@@ -21,5 +23,4 @@ public class Constants {
     public static final String FIRST_NAME = "QA";
     public static final String LAST_NAME = "Test";
     public static final String ZIP_CODE = "12345";
-//"secret_sauce"
 }

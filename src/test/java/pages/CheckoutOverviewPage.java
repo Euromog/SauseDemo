@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -28,6 +29,7 @@ public class CheckoutOverviewPage extends BasePage {
         return this;
     }
 
+    @Step("Open CheckoutOverview page")
     @Override
     public CheckoutOverviewPage openPage() {
         driver.get(URL + ENDPOINT);
@@ -46,11 +48,13 @@ public class CheckoutOverviewPage extends BasePage {
         return driver.findElement(TOTAL_LOCATOR).getText();
     }
 
+    @Step("Click finish button to complete checkout")
     public FinishPage finishCheckout() {
         driver.findElement(FINISH_BUTTON).click();
         return new FinishPage(driver);
     }
 
+    @Step("Click cancel button to cancel checkout")
     public ProductsPage cancelCheckoutOverview() {
         driver.findElement(CANCEL_BUTTON).click();
         return new ProductsPage(driver);

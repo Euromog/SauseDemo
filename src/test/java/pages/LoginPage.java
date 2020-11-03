@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -27,6 +28,7 @@ public class LoginPage extends BasePage {
         return this;
     }
 
+    @Step("Open Login Page")
     @Override
     public LoginPage openPage() {
         driver.get(URL + ENDPOINT);
@@ -37,6 +39,7 @@ public class LoginPage extends BasePage {
         return driver.findElement(ERROR_MESSAGE).getText();
     }
 
+    @Step("Trying to login as {username} / {password}")
     public LoginPage attemptToLogin(String username, String password) {
         driver.findElement(USERNAME_INPUT).sendKeys(username);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
@@ -44,6 +47,7 @@ public class LoginPage extends BasePage {
         return this;
     }
 
+    @Step("Login as {username} / {password}")
     public ProductsPage login(String username, String password) {
         attemptToLogin(username, password);
         return new ProductsPage(driver);
