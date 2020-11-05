@@ -2,6 +2,7 @@ package tests;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import utils.PropertyReader;
 
 import static org.testng.Assert.assertEquals;
 
@@ -21,8 +22,8 @@ public class LoginTest extends BaseTest {
     @DataProvider(name = "InvalidTestDataForLogin")
     public Object[][] testDataForLogin() {
         return new Object[][]{
-                {"", PASSWORD, "Epic sadface: Username is required"},
-                {USERNAME, "", "Epic sadface: Password is required"},
+                {"", System.getenv().getOrDefault("password", PropertyReader.getProperty("password")), "Epic sadface: Username is required"},
+                {System.getenv().getOrDefault("username", PropertyReader.getProperty("username")), "", "Epic sadface: Password is required"},
                 {WRONG_USERNAME, WRONG_PASSWORD, "Epic sadface: Username and password do not match any user in this service"}
         };
     }
@@ -33,7 +34,7 @@ public class LoginTest extends BaseTest {
                 .openPage()
                 .isPageOpened()
 //                .login(USERNAME, PASSWORD)
-                .login(System.getenv("username"), System.getenv("password"))
+                .login(System.getenv().getOrDefault("username", PropertyReader.getProperty("username")), System.getenv().getOrDefault("password", PropertyReader.getProperty("password")))
                 .isPageOpened()
                 .getAddToCartRemoveButtonName(PRODUCT_NAME);
 
