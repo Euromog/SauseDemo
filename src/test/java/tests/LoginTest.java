@@ -32,7 +32,8 @@ public class LoginTest extends BaseTest {
         String successLogin = loginPage
                 .openPage()
                 .isPageOpened()
-                .login(USERNAME, PASSWORD)
+//                .login(USERNAME, PASSWORD)
+                .login(System.getenv("username"), System.getenv("password"))
                 .isPageOpened()
                 .getAddToCartRemoveButtonName(PRODUCT_NAME);
 
