@@ -6,8 +6,9 @@ pipeline {
         maven "M3"
     }
     triggers {
-          cron('0 8 * * *')
-        }   parameters {
+        cron('0 8 * * *')
+        }
+    parameters {
         gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH'
         }
 
