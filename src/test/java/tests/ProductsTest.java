@@ -2,6 +2,8 @@ package tests;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import tests.base.RetryAnalyzer;
+import utils.AllureUtils;
 
 import static org.testng.Assert.assertEquals;
 
@@ -17,10 +19,9 @@ public class ProductsTest extends BaseTest {
 
     @Test(description = "Adding item into cart", retryAnalyzer = RetryAnalyzer.class)
     public void productShouldBeAddedIntoCart() {
-        productsPage
-                .openPage()
-                .isPageOpened()
+        steps
                 .addItemToCart(PRODUCT_NAME);
+        AllureUtils.takeScreenshot(driver);
         String itemNameInTheCart = cartPage
                 .openPage()
                 .isPageOpened()
